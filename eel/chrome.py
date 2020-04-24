@@ -9,7 +9,7 @@ def run(path, options, start_urls):
         for url in start_urls:
             sps.Popen([path, '--app=%s' % url] +
                        options['cmdline_args'],
-                       stdout=sps.PIPE, stderr=sps.PIPE, stdin=sps.PIPE)
+                       stdout=sps.PIPE, stderr=sys.stderr, stdin=sps.PIPE)
     else:
         args = options['cmdline_args'] + start_urls
         sps.Popen([path, '--new-window'] + args,
